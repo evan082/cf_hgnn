@@ -1,0 +1,48 @@
+# SPC study — BPI Challenge 2019 P2P (pre-subsampled 3k CSV)
+
+
+
+seed: 42
+
+dataset: bpic2019_spc
+
+data_path: data/public_logs/bpic2019_3k.csv
+
+case_col: case
+
+activity_col: activity
+
+timestamp_col: timestamp
+
+
+
+max_cases: null
+num_layers: 2
+dropout: 0.2
+
+tf_embed_dim: 128
+tf_hidden_dim: 128
+tf_num_layers: 4
+tf_nhead: 4
+tf_dropout: 0.1
+tf_pool_mode: mean_last
+tf_learned_pos: false
+use_time_feat: true
+use_resource_feat: true
+use_extra_attrs: false
+
+soft_legal_lambda: 0.1
+calibrate_gate: false
+gate_tau: -1
+label_smoothing: 0.0
+
+lr: 0.0005
+weight_decay: 1.0e-5
+batch_size: 64
+epochs: 40
+patience: 10
+early_stop_metric: accuracy
+
+discovery_noise_threshold: 0.3
+device: cpu
+output_dir: outputs

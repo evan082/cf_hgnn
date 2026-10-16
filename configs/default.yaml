@@ -1,0 +1,33 @@
+seed: 42
+dataset: sample_log
+data_path: data/sample_log.csv
+case_col: case
+activity_col: activity
+timestamp_col: timestamp
+
+# case-level split ratios
+train_ratio: 0.64
+val_ratio: 0.16
+test_ratio: 0.20
+min_prefix_len: 1
+
+# model
+embed_dim: 64
+hidden_dim: 128
+num_layers: 2
+dropout: 0.2
+lr: 0.001
+weight_decay: 1.0e-5
+batch_size: 64
+epochs: 30
+patience: 8
+
+# conformance
+discovery_noise_threshold: 0.2
+alignment_cache_dir: outputs/alignment_cache
+use_graph_conformance: false
+use_node_conformance: false
+
+# experiment
+device: cpu
+output_dir: outputs

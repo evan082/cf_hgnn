@@ -1,0 +1,48 @@
+# SPC study — BPI Challenge 2020 Travel Permits (subsample)
+
+seed: 42
+dataset: bpic2020_spc
+data_path: data/public_logs/bpic2020_travel.xes
+case_col: null
+activity_col: null
+timestamp_col: null
+
+max_cases: 3000
+max_prefix_len: 20
+
+train_ratio: 0.80
+val_ratio: 0.10
+test_ratio: 0.10
+min_prefix_len: 1
+
+embed_dim: 128
+hidden_dim: 128
+num_layers: 2
+dropout: 0.2
+
+tf_embed_dim: 128
+tf_hidden_dim: 128
+tf_num_layers: 4
+tf_nhead: 4
+tf_dropout: 0.1
+tf_pool_mode: mean_last
+tf_learned_pos: false
+use_time_feat: true
+use_resource_feat: true
+use_extra_attrs: false
+
+soft_legal_lambda: 0.1
+calibrate_gate: false
+gate_tau: -1
+label_smoothing: 0.0
+
+lr: 0.0005
+weight_decay: 1.0e-5
+batch_size: 64
+epochs: 40
+patience: 10
+early_stop_metric: accuracy
+
+discovery_noise_threshold: 0.2
+device: cpu
+output_dir: outputs

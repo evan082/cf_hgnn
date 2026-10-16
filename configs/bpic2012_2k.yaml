@@ -1,0 +1,34 @@
+seed: 42
+dataset: bpic2012_2k
+data_path: ../BPI_Challenge_2012.xes/BPI_Challenge_2012.xes
+case_col: null
+activity_col: null
+timestamp_col: null
+
+max_cases: 2000
+max_prefix_len: 20
+
+train_ratio: 0.64
+val_ratio: 0.16
+test_ratio: 0.20
+min_prefix_len: 1
+
+embed_dim: 64
+hidden_dim: 128
+num_layers: 2
+dropout: 0.2
+
+tf_embed_dim: 128
+tf_hidden_dim: 128
+tf_num_layers: 4
+tf_dropout: 0.1
+
+lr: 0.001
+weight_decay: 1.0e-5
+batch_size: 64
+epochs: 30
+patience: 8
+
+discovery_noise_threshold: 0.3
+device: cpu
+output_dir: outputs

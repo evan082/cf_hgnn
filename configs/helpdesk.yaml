@@ -1,0 +1,30 @@
+seed: 42
+dataset: helpdesk
+data_path: ../data/finale.csv
+case_col: Case ID
+activity_col: Activity
+timestamp_col: Complete Timestamp
+
+# subsample for tractable alignment wall-clock; set null for full log
+max_cases: 1200
+
+train_ratio: 0.64
+val_ratio: 0.16
+test_ratio: 0.20
+min_prefix_len: 1
+
+embed_dim: 64
+hidden_dim: 128
+num_layers: 2
+dropout: 0.2
+lr: 0.001
+weight_decay: 1.0e-5
+batch_size: 64
+epochs: 40
+patience: 10
+
+discovery_noise_threshold: 0.2
+alignment_cache_dir: outputs/alignment_cache
+
+device: cpu
+output_dir: outputs

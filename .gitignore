@@ -1,0 +1,12 @@
+outputs/
+__pycache__/
+*.pyc
+.idea/
+*.whl
+*.pt
+*.ckpt
+*.docx
+*.bak
+*.broken
+data/public_logs/
+scripts/_*.py

@@ -1,0 +1,52 @@
+seed: 42
+dataset: helpdesk_acc
+data_path: ../data/finale.csv
+case_col: Case ID
+activity_col: Activity
+timestamp_col: Complete Timestamp
+
+max_cases: null
+
+# common PPM 80/10/10 random case split
+train_ratio: 0.80
+val_ratio: 0.10
+test_ratio: 0.10
+min_prefix_len: 1
+
+embed_dim: 128
+hidden_dim: 128
+num_layers: 2
+dropout: 0.2
+
+# scaled-up Transformer
+tf_embed_dim: 256
+tf_hidden_dim: 256
+tf_num_layers: 6
+tf_nhead: 8
+tf_dropout: 0.1
+tf_pool_mode: mean_last
+tf_learned_pos: false
+use_time_feat: true
+use_resource_feat: true
+use_extra_attrs: true
+attr_cols:
+  - customer
+  - product
+  - responsible_section
+  - seriousness_2
+  - service_level
+  - service_type
+  - support_section
+  - workgroup
+
+lr: 0.0003
+weight_decay: 1.0e-5
+batch_size: 32
+epochs: 80
+patience: 15
+# micro Acc is more stable than macro_k on small val
+early_stop_metric: accuracy
+
+discovery_noise_threshold: 0.2
+device: cpu
+output_dir: outputs

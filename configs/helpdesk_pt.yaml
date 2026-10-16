@@ -1,0 +1,49 @@
+# ProcessTransformer-aligned Helpdesk protocol (literature Acc comparison)
+# Official PT (zaharah/processtransformer):
+#   - case order = first appearance in CSV (sort_temporally=False)
+#   - first int(n*0.8) cases train, rest test
+#   - activity-only prefixes; activity names lowercased + spaces→hyphens
+#   - pre-pad + GlobalAveragePooling (includes PAD)
+#   - embed=36, 1 block, heads=4, ff=64
+#   - Acc = mean over prefix lengths (accuracy_macro_k); paper Helpdesk ≈ 0.8563
+#   - checkpoint by train Acc (SparseCategoricalAccuracy on train)
+# Model: scripts/train_pt_clone.py (faithful clone)
+
+seed: 42
+dataset: helpdesk_pt
+data_path: ../data/finale.csv
+case_col: Case ID
+activity_col: Activity
+timestamp_col: Complete Timestamp
+
+max_cases: null
+split_mode: sequential
+train_ratio: 0.80
+val_ratio: 0.0
+test_ratio: 0.20
+min_prefix_len: 1
+normalize_activity_names: true
+
+model_variant: pt_clone
+use_time_feat: false
+use_resource_feat: false
+use_extra_attrs: false
+
+# official PT defaults
+tf_embed_dim: 36
+tf_num_layers: 1
+tf_nhead: 4
+tf_ff_dim: 64
+tf_dropout: 0.1
+
+lr: 0.001
+weight_decay: 0.0
+batch_size: 12
+epochs: 100
+patience: 100
+early_stop_metric: train_accuracy
+label_smoothing: 0.0
+
+discovery_noise_threshold: 0.2
+device: cpu
+output_dir: outputs

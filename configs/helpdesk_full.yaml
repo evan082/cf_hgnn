@@ -1,0 +1,35 @@
+seed: 42
+dataset: helpdesk_full
+data_path: ../data/finale.csv
+case_col: Case ID
+activity_col: Activity
+timestamp_col: Complete Timestamp
+
+# full log — no subsample
+max_cases: null
+
+train_ratio: 0.64
+val_ratio: 0.16
+test_ratio: 0.20
+min_prefix_len: 1
+
+embed_dim: 64
+hidden_dim: 128
+num_layers: 2
+dropout: 0.2
+
+# Transformer (Acc-first)
+tf_embed_dim: 128
+tf_hidden_dim: 128
+tf_num_layers: 4
+tf_dropout: 0.1
+
+lr: 0.001
+weight_decay: 1.0e-5
+batch_size: 64
+epochs: 40
+patience: 10
+
+discovery_noise_threshold: 0.2
+device: cpu
+output_dir: outputs

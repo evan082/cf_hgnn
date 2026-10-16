@@ -1,5 +1,7 @@
 # CF-HGNN — 下一活动预测 + 选择性过程约束（SPC）
 
+公开仓库：[https://github.com/evan082/cf_hgnn](https://github.com/evan082/cf_hgnn)
+
 **主创新：SPC** — 训练用不确定性加权软合法正则，推理仅在高熵时施加合法掩码。  
 属性 Transformer 为强基线；全程 hard mask / 一致性特征拼接为对照。
 
